@@ -1,6 +1,7 @@
 cabal-version:   3.4
 name:            brick-breaker
 version:         0.1.0.0
+with-compiler:   ghc-9.6.2
 
 -- synopsis:
 -- description:
@@ -17,10 +18,10 @@ library
   exposed-modules:  Lib
   build-depends:
     , aeson
-    , base   ^>=4.18.0.0
-    , text
+    , base          ^>=4.18.0.0
     , microlens
     , microlens-th
+    , text
 
   hs-source-dirs:   lib
   default-language: GHC2021
@@ -38,8 +39,8 @@ executable brick-breaker-client
     , aeson
     , async
     , base           ^>=4.18.0.0
-    , brick-breaker
     , brick
+    , brick-breaker
     , bytestring
     , microlens
     , microlens-mtl
@@ -48,6 +49,7 @@ executable brick-breaker-client
     , text-zipper
     , time
     , vty
+    , vty-unix
     , websockets
 
   hs-source-dirs:   client
@@ -74,3 +76,5 @@ executable brick-breaker-server
   hs-source-dirs:   server
   default-language: GHC2021
   ghc-options:      -threaded -rtsopts -with-rtsopts=-N
+
+  with-ghc

@@ -23,7 +23,7 @@ import Brick.Widgets.Core (
  )
 import Brick.Widgets.Edit (Editor, applyEdit, handleEditorEvent, renderEditor)
 import Brick.Widgets.Edit qualified as E
-import Control.Concurrent (MVar, newEmptyMVar, newMVar, readMVar, takeMVar)
+import Control.Concurrent (MVar, newEmptyMVar, readMVar)
 import Control.Concurrent.Async (concurrently_, race_)
 import Control.Concurrent.MVar (putMVar)
 import Control.Monad (void)
@@ -31,7 +31,8 @@ import Control.Monad.IO.Class (liftIO)
 import Data.Aeson (decode, encode)
 import Data.Text (Text, unpack)
 import Data.Text.Zipper (clearZipper)
-import Graphics.Vty (defaultConfig, mkVty)
+import Graphics.Vty (defaultConfig)
+import Graphics.Vty.Platform.Unix (mkVty)
 import Graphics.Vty.Attributes qualified as V
 import Graphics.Vty.Input.Events qualified as V
 import Lens.Micro ((^.))
