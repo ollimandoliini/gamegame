@@ -1,0 +1,25 @@
+# fly.toml file generated for peli on 2023-11-12T19:31:05+02:00
+
+app = "peli"
+kill_signal = "SIGINT"
+kill_timeout = 5
+mounts = []
+processes = []
+
+[[services]]
+  internal_port = 8080
+  processes = ["app"]
+  protocol = "tcp"
+  [services.concurrency]
+    hard_limit = 25
+    soft_limit = 20
+    type = "connections"
+
+  [[services.ports]]
+    force_https = true
+    handlers = ["http"]
+    port = 80
+
+  [[services.ports]]
+    handlers = ["tls", "http"]
+    port = 443
